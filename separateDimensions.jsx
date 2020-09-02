@@ -13,8 +13,10 @@
 
             //$.writeln(selectedLayers[i].property("Position").dimensionsSeparated);
             
+            // Check if position dimensions are separated
             if (selectedLayers[i].property("Position").dimensionsSeparated){
 
+                // If they are, join them
                 selectedLayers[i].property("Position").dimensionsSeparated = false;
 
             } else {
