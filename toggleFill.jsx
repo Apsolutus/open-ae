@@ -2,7 +2,7 @@
 // It is handy for positioning items over other layers that have the same colour. 
 
 {
-    function toggleColour() {
+    function toggleFill() {
         var activeItem = app.project.activeItem;
         var selectedLayers = activeItem.selectedLayers;
         
@@ -12,11 +12,11 @@
         for (i = 0; i < selectedLayers.length; ++i) {
 
             // Loop through all properties on the selected layer
-            for (var p = 1; i <= selectedLayers[i].property("Effects").numProperties; p++){
+            for (var p = 1; p <= selectedLayers[i].property("ADBE Effect Parade").numProperties; p++){
 
                 try {
                     // Check if the layer already has a Fill effect
-                    if (selectedLayers[i].property("Effects").property(p).matchName == "ADBE Fill"){
+                    if (selectedLayers[i].property("ADBE Effect Parade").property(p).matchName == "ADBE Fill"){
 
                         // $.writeln("Fill exists");
 
@@ -27,7 +27,7 @@
                 } catch(error) {
 
                     // Otherwise add a Fill effect to the layer
-                    selectedLayers[i].property("Effects").addProperty("ADBE Fill");
+                    selectedLayers[i].property("ADBE Effect Parade").addProperty("ADBE Fill");
                     return
                 }
             }
@@ -39,5 +39,5 @@
     }
 
     // Execute the script
-    toggleColour();  
+    toggleFill();  
 }  
